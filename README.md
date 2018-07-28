@@ -1,7 +1,7 @@
 LogRabbitMq
 =====================
 
-[![Build Status](https://travis-ci.org/xervice/lograbbitmq).svg?branch=master)](https://travis-ci.org/xervice/lograbbitmq)
+[![Build Status](https://travis-ci.org/xervice/log-rabbitmq.svg?branch=master)](https://travis-ci.org/xervice/log-rabbitmq)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xervice/log-rabbitmq/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xervice/log-rabbitmq/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/xervice/log-rabbitmq/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/xervice/log-rabbitmq/?branch=master)
 
