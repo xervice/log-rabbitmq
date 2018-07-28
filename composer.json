@@ -13,7 +13,9 @@
   },
   "require": {
     "php": ">=7.1.0",
-    "xervice/data-provider": "^1.4.4"
+    "xervice/data-provider": "^1.4.4",
+    "xervice/rabbitmq": "^2.0.0",
+    "xervice/logger": "^1.0.0"
   },
   "autoload": {
     "psr-4": {

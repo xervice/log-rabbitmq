@@ -12,11 +12,15 @@ use Xervice\Core\Dependency\Provider\AbstractProvider;
  */
 class LogRabbitMqDependencyProvider extends AbstractProvider
 {
+    public const RABBITMQ_CLIENT = 'rabbitmq.facade';
+
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
      */
     public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
     {
-        // TODO: Implement handleDependencies() method.
+        $dependencyProvider[self::RABBITMQ_CLIENT] = function (DependencyProviderInterface $dependencyProvider) {
+            return $dependencyProvider->getLocator()->rabbitMQ()->client();
+        };
     }
 }
