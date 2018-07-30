@@ -8,9 +8,9 @@ use Xervice\Core\Config\AbstractConfig;
 
 class LogRabbitMqConfig extends AbstractConfig
 {
-    public const QUEUE_NAME = 'queue.name';
+    public const QUEUE_NAME = 'log.queue.name';
 
-    public const EXCHANGE_NAME = 'exchange.name';
+    public const EXCHANGE_NAME = 'log.exchange.name';
 
     /**
      * @return string
