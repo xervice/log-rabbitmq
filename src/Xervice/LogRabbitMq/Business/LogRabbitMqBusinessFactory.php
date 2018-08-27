@@ -1,20 +1,21 @@
 <?php
 
 
-namespace Xervice\LogRabbitMq;
+namespace Xervice\LogRabbitMq\Business;
 
 
 use DataProvider\RabbitMqExchangeDataProvider;
 use DataProvider\RabbitMqQueueBindDataProvider;
 use DataProvider\RabbitMqQueueDataProvider;
-use Xervice\Core\Factory\AbstractFactory;
-use Xervice\RabbitMQ\Core\ExchangeProvider;
-use Xervice\RabbitMQ\RabbitMQClient;
+use Xervice\Core\Business\Model\Factory\AbstractBusinessFactory;
+use Xervice\LogRabbitMq\LogRabbitMqDependencyProvider;
+use Xervice\RabbitMQ\Business\Model\Core\ExchangeProvider;
+use Xervice\RabbitMQ\Business\RabbitMQFacade;
 
 /**
  * @method \Xervice\LogRabbitMq\LogRabbitMqConfig getConfig()
  */
-class LogRabbitMqFactory extends AbstractFactory
+class LogRabbitMqBusinessFactory extends AbstractBusinessFactory
 {
 
     /**
@@ -57,10 +58,10 @@ class LogRabbitMqFactory extends AbstractFactory
     }
 
     /**
-     * @return \Xervice\RabbitMQ\RabbitMQClient
+     * @return \Xervice\RabbitMQ\Business\RabbitMQFacade
      */
-    public function getRabbitMqClient(): RabbitMQClient
+    public function getRabbitMqFacade(): RabbitMQFacade
     {
-        return $this->getDependency(LogRabbitMqDependencyProvider::RABBITMQ_CLIENT);
+        return $this->getDependency(LogRabbitMqDependencyProvider::RABBITMQ_FACADE);
     }
 }

@@ -5,7 +5,7 @@ namespace XerviceTest\LogRabbitMq\Listener;
 
 
 use DataProvider\LogMessageDataProvider;
-use Xervice\LogRabbitMq\Business\Queue\AbstractLogQueueListener;
+use Xervice\LogRabbitMq\Business\Plugin\Queue\AbstractLogQueueListener;
 
 class LogListener extends AbstractLogQueueListener
 {

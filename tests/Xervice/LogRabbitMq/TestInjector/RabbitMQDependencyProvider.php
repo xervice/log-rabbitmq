@@ -4,8 +4,8 @@
 namespace App\RabbitMQ;
 
 
-use Xervice\LogRabbitMq\Business\Queue\LogExchange;
-use Xervice\LogRabbitMq\Business\Queue\LogQueue;
+use Xervice\LogRabbitMq\Business\Plugin\Queue\LogExchange;
+use Xervice\LogRabbitMq\Business\Plugin\Queue\LogQueue;
 use Xervice\RabbitMQ\RabbitMQDependencyProvider as XerviceRabbitMQDependencyProvider;
 use XerviceTest\LogRabbitMq\Listener\LogListener;
 

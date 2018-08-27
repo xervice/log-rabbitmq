@@ -1,23 +1,21 @@
 <?php
 
 
-namespace Xervice\LogRabbitMq\Business\Log;
+namespace Xervice\LogRabbitMq\Business\Plugin\Log;
 
 
 use DataProvider\LogMessageDataProvider;
 use DataProvider\RabbitMqMessageDataProvider;
-use Xervice\Core\Locator\AbstractWithLocator;
-use Xervice\Logger\Business\Handler\LogHandlerInterface;
+use Xervice\Core\Plugin\AbstractBusinessPlugin;
+use Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface;
 
 /**
- * @method \Xervice\LogRabbitMq\LogRabbitMqFactory getFactory()
+ * @method \Xervice\LogRabbitMq\Business\LogRabbitMqBusinessFactory getFactory()
  */
-class QueueLogHandler extends AbstractWithLocator implements LogHandlerInterface
+class QueueLogHandler extends AbstractBusinessPlugin implements LogHandlerInterface
 {
     /**
      * @param \DataProvider\LogMessageDataProvider $messageDataProvider
-     *
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
      */
     public function handleLog(LogMessageDataProvider $messageDataProvider): void
     {
@@ -28,6 +26,6 @@ class QueueLogHandler extends AbstractWithLocator implements LogHandlerInterface
             )
             ->setMessage($messageDataProvider);
 
-        $this->getFactory()->getRabbitMqClient()->sendMessage($message);
+        $this->getFactory()->getRabbitMqFacade()->sendMessage($message);
     }
 }

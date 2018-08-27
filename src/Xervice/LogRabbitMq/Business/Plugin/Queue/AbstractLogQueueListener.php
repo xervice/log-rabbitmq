@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Xervice\LogRabbitMq\Business\Queue;
+namespace Xervice\LogRabbitMq\Business\Plugin\Queue;
 
 
 use DataProvider\LogMessageDataProvider;
 use DataProvider\RabbitMqMessageCollectionDataProvider;
 use PhpAmqpLib\Channel\AMQPChannel;
-use Xervice\RabbitMQ\Worker\Listener\AbstractListener;
+use Xervice\RabbitMQ\Business\Model\Worker\Listener\AbstractListener;
 
 /**
- * @method \Xervice\LogRabbitMq\LogRabbitMqFactory getFactory()
+ * @method \Xervice\LogRabbitMq\Business\LogRabbitMqBusinessFactory getFactory()
  */
 abstract class AbstractLogQueueListener extends AbstractListener
 {
@@ -35,7 +35,6 @@ abstract class AbstractLogQueueListener extends AbstractListener
 
     /**
      * @return string
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
      */
     public function getQueueName(): string
     {

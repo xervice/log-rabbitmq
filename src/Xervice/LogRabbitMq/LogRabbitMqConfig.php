@@ -1,10 +1,9 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Xervice\LogRabbitMq;
 
-
-use Xervice\Core\Config\AbstractConfig;
+use Xervice\Core\Business\Model\Config\AbstractConfig;
 
 class LogRabbitMqConfig extends AbstractConfig
 {

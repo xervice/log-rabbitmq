@@ -4,23 +4,24 @@
 namespace Xervice\LogRabbitMq;
 
 
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class LogRabbitMqDependencyProvider extends AbstractProvider
+class LogRabbitMqDependencyProvider extends AbstractDependencyProvider
 {
-    public const RABBITMQ_CLIENT = 'rabbitmq.facade';
+    public const RABBITMQ_FACADE = 'rabbitmq.facade';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::RABBITMQ_CLIENT] = function (DependencyProviderInterface $dependencyProvider) {
-            return $dependencyProvider->getLocator()->rabbitMQ()->client();
+        $container[self::RABBITMQ_FACADE] = function (DependencyContainerInterface $container) {
+            return $container->getLocator()->rabbitMQ()->facade();
         };
+
+        return $container;
     }
 }

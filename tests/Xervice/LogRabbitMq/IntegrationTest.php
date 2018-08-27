@@ -2,22 +2,16 @@
 namespace XerviceTest\LogRabbitMq;
 
 use DataProvider\LogMessageDataProvider;
-use Xervice\Core\Locator\Locator;
-use Xervice\DataProvider\DataProviderFacade;
-use Xervice\Logger\LoggerFacade;
-use Xervice\RabbitMQ\RabbitMQFacade;
+use Xervice\Core\Business\Model\Locator\Locator;
+use Xervice\DataProvider\Business\DataProviderFacade;
+use Xervice\Logger\Business\LoggerFacade;
+use Xervice\RabbitMQ\Business\RabbitMQFacade;
 
 require_once __DIR__ . '/TestInjector/LoggerDependencyProvider.php';
 require_once __DIR__ . '/TestInjector/RabbitMQDependencyProvider.php';
 
 class IntegrationTest extends \Codeception\Test\Unit
 {
-
-    /**
-     * @var \XerviceTest\XerviceTester
-     */
-    protected $tester;
-    
     protected function _before()
     {
         $this->getDataProviderFacade()->generateDataProvider();
@@ -49,7 +43,7 @@ class IntegrationTest extends \Codeception\Test\Unit
     }
 
     /**
-     * @return \Xervice\Logger\LoggerFacade
+     * @return \Xervice\Logger\Business\LoggerFacade
      */
     private function getLoggerFacade(): LoggerFacade
     {
@@ -57,7 +51,7 @@ class IntegrationTest extends \Codeception\Test\Unit
     }
 
     /**
-     * @return \Xervice\DataProvider\DataProviderFacade
+     * @return \Xervice\DataProvider\Business\DataProviderFacade
      */
     private function getDataProviderFacade(): DataProviderFacade
     {
@@ -65,7 +59,7 @@ class IntegrationTest extends \Codeception\Test\Unit
     }
 
     /**
-     * @return \Xervice\RabbitMQ\RabbitMQFacade
+     * @return \Xervice\RabbitMQ\Business\RabbitMQFacade
      */
     private function getRabbitMqFacade(): RabbitMQFacade
     {
