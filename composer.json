@@ -16,7 +16,7 @@
     "php": ">=7.1.0",
     "xervice/core": "^4.0.0",
     "xervice/data-provider": "^2.0.0",
-    "xervice/rabbitmq": "^3.0.0",
+    "xervice/rabbitmq": "^3.0.0|^4.0.0",
     "xervice/logger": "^2.0.0"
   },
   "autoload": {

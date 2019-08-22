@@ -2,6 +2,7 @@
 namespace XerviceTest\LogRabbitMq;
 
 use DataProvider\LogMessageDataProvider;
+use DataProvider\RabbitMqWorkerConfigDataProvider;
 use Xervice\Core\Business\Model\Locator\Locator;
 use Xervice\DataProvider\Business\DataProviderFacade;
 use Xervice\Logger\Business\LoggerFacade;
@@ -31,7 +32,10 @@ class IntegrationTest extends \Codeception\Test\Unit
         ob_start();
         $this->getRabbitMqFacade()->init();
         $this->getLoggerFacade()->log($log);
-        $this->getRabbitMqFacade()->runWorker();
+
+        $config = new RabbitMqWorkerConfigDataProvider();
+
+        $this->getRabbitMqFacade()->runWorker($config);
 
         $response = ob_get_contents();
         ob_end_clean();
